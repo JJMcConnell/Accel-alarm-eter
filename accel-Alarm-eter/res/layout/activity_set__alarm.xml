@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BgGreen"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Set_Alarm" >
+
+    <EditText
+        android:id="@+id/timeInput"
+        android:layout_width="132dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/daynight"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/daynight"
+        android:ems="10"
+        android:imeOptions="actionDone"
+        android:inputType="time"
+        android:textColor="@color/White"
+        android:textColorHint="@color/White"
+        android:textColorLink="@color/White" />
+
+    <Spinner
+        android:id="@+id/daynight"
+        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="68dp"
+        android:layout_toRightOf="@+id/timeInput"
+        android:entries="@array/daynight_array" />
+
+    <ImageButton
+        android:id="@+id/set"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/ring2"
+        android:onClick="set" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/set"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/set"
+        android:textColor="@color/White"
+        android:textSize="40sp" />
+
+</RelativeLayout>
