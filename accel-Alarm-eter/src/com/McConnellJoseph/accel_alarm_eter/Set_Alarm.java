@@ -33,7 +33,7 @@ public class Set_Alarm extends Activity {
 		String selection;
 		 
 		 
-		 boolean invalidTime = false;
+		 
 		 boolean AM = false;
 		 boolean PM = false;
 		 boolean colon = false;
@@ -118,12 +118,12 @@ public class Set_Alarm extends Activity {
 			        	//Checks to make sure that the hour input is possible, nags the user if it isn't
 			        	//The -1 is to correct for the blank space in the front of the strings
 			        	if ((hour.length() - 1) > 2 || (hour.length() - 1 ) < 1){
-			        		Toast.makeText(getApplicationContext(), "Please input a proper time", Toast.LENGTH_LONG).show();
+			        		Toast.makeText(getApplicationContext(), "Please input a time in the format hh:mm", Toast.LENGTH_SHORT).show();
 			        	}
 			        	
 			        	//Checks to make sure that the minute input is possible nags the user if it isn't
 			        	if ((minute.length() - 1) != 2){
-			        		Toast.makeText(getApplicationContext(), "Please input a proper time", Toast.LENGTH_LONG).show();
+			        		Toast.makeText(getApplicationContext(), "Please input a time in the format hh:mm", Toast.LENGTH_SHORT).show();
 			        	}
 			        	
 			        	
@@ -170,12 +170,13 @@ public class Set_Alarm extends Activity {
 	public int minuteConverter(String s){
 		
 		
+		
 		//This acts as a check that numbers were actually entered
 		//If the user had inputed " 12: " then the minute string would have a length of 1 
 		//due to the space and would be caught and dealt with by this conditional
 		
 		if (s.length() < 2){
-			invalidTime = true;
+			
 			return -1;
 		}
 		
@@ -187,7 +188,8 @@ public class Set_Alarm extends Activity {
 		
 		//This checks to make sure that the time entered is valid and flags it if it is not
 		if (convertedMinutes > 59 || convertedMinutes < 0){
-			invalidTime = true;
+			
+			return -1;
 		}
 	
 		return convertedMinutes;
@@ -199,13 +201,15 @@ public class Set_Alarm extends Activity {
 	//AM or PM was selected by the user
 	public int hourConverter(String s){
 		
+	
+		
 		
 		//This acts as a check that numbers were actually entered
 		//If the user had inputed " :11" then the hour string would have a length of 1 due to the space
 		//and would be caught and dealt with by this conditional
 		
 		if (s.length() < 2){
-			invalidTime = true;
+			
 			return -1;
 		}
 		
@@ -217,7 +221,8 @@ public class Set_Alarm extends Activity {
 		
 		//Checks to makes sure that the time entered is valid and flags it if it is not
 		if (convertedHours > 12 || convertedHours < 1){
-			invalidTime = true;
+			
+			return -1;
 		}
 		else {
 			spinnerCheck();
@@ -239,7 +244,7 @@ public class Set_Alarm extends Activity {
 		
 		
 		//Checks to see if a time was entered, if it was not it asks the user to enter one
-		if (TimeSet == false || invalidTime == true){
+		if (TimeSet == false || tempHour == -1 || tempMinute == -1){
 			Toast.makeText(getApplicationContext(), "Please Input A Proper Time", Toast.LENGTH_SHORT).show();
 		}
 		
@@ -309,7 +314,9 @@ public class Set_Alarm extends Activity {
 	    }
 	}
 	
+	
 	//Get and remove methods for the two array lists 
+	
 	public static String getAlarmSentence(int x) {
 			return alarmSentence.get(x);
 		}
