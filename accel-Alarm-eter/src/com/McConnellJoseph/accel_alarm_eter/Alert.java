@@ -68,10 +68,13 @@ public class Alert extends Activity {
 				    r.stop();
 				    
 				    if (shakeFlag == false){
+				    	
+				    	if (Set_Alarm.getAlarmSentenceLength() > 0) {
 				    //These remove the alarm from the current alarms list once it has gone off
 				    Set_Alarm.removeAlarmSentence(0);
 			           
 			        Set_Alarm.removeCampers(0);
+				    	}
 			        
 			        shakeFlag = true;
 				    }
