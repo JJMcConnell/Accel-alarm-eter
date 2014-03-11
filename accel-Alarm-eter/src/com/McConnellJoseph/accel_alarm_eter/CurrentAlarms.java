@@ -33,8 +33,7 @@ public class CurrentAlarms extends Activity implements OnItemClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_current_alarms);
 		
-		//ActionBar actionBar = getActionBar();
-		//actionBar.setHomeButtonEnabled(true);
+		
 		
 		//Sets the listview to the adapter
 		ListView listOfAlarms = (ListView) findViewById(R.id.listOfAlarms);

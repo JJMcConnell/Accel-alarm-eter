@@ -26,6 +26,11 @@ public class Alert extends Activity {
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		
+		if (Set_Alarm.getAlarmSentenceLength() < 1 ){
+			finish();
+		}
+		
+		
 		//Changes the screen to the alarm
 		 setContentView(R.layout.alarm_pop_up);
 		 
