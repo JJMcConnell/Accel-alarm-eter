@@ -26,10 +26,14 @@ public class Alert extends Activity {
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		
-		if (Set_Alarm.getAlarmSentenceLength() < 1 ){
-			finish();
-		}
 		
+		
+		//This should help treat the symptoms of ghost alarms
+		//Checks to make sure there is actually an alarm set, if there is not it closes.
+		if (Set_Alarm.getAlarmSentenceLength() < 1 ){
+			System.exit(0);
+		}
+		else{
 		
 		//Changes the screen to the alarm
 		 setContentView(R.layout.alarm_pop_up);
@@ -63,7 +67,7 @@ public class Alert extends Activity {
 	   
 		   r.play();
 	     
-		   
+		
 		   
 		   //Sets up the listener so that if you shake the phone the alarm will stop
 		   mSensorListener.setOnShakeListener(new ShakeEventListener.OnShakeListener() {
@@ -86,7 +90,8 @@ public class Alert extends Activity {
 			        //Closes the activity that pops up
 				    finish();
 				      }
-				 });
+		   
+		   });}}
 	     
 	     //Code for a button to stop the alarm as well. I am leaving it without a button
 		 //as a design choice but if needed I will re-implement one
@@ -111,7 +116,7 @@ public class Alert extends Activity {
 			} 
 		}); */
 		
-	}
+	
 	@Override
 	  protected void onResume() {
 	    super.onResume();

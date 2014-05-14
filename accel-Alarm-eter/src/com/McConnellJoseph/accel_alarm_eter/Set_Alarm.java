@@ -226,7 +226,7 @@ public class Set_Alarm extends Activity {
 		}
 		else {
 			spinnerCheck();
-			if( PM == true){
+			if( PM == true && convertedHours != 12){
 				convertedHours += 12;
 			}
 		}
